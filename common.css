@@ -1,0 +1,30 @@
+body{
+  margin: 0;
+}
+.section{
+  width: 100%;
+  height: 400px;
+  background-color: #CFCFCF;
+}
+.section1{
+  background-color: #BCBCBC;
+}
+.section2{
+  background-color: #AAAAAA;
+}
+.section3{
+  background-color: #999999;
+}
+.l-page{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  overflow: hidden;
+}
+.dummy-scroll{
+  width: 100%;
+  height: 2400px;
+  position:absolute;
+  top: 0;
+  left: 0;
+}
