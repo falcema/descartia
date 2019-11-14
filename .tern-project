@@ -1,0 +1,17 @@
+{
+  "ecmaVersion": 8,
+  "libs": [
+    "browser"
+  ],
+  "loadEagerly": [
+    "descartia.js"
+  ],
+  "dontLoad": [
+  ],
+  "plugins": {
+    "doc_comment": {
+      "fullDocs": true,
+      "strong": true
+    }
+  }
+}

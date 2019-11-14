@@ -28,3 +28,9 @@ body{
   top: 0;
   left: 0;
 }
+#scroll-value{
+  font-size: 30px;
+  display: block;
+  position: fixed;
+  margin-left: 50px;
+}
