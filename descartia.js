@@ -10,11 +10,19 @@
   var l_table_height;
   var debounceTimer;
 
-
   const l_table = document.getElementsByClassName('l-table')[0];
   const dummy_scroll = document.getElementsByClassName('dummy-scroll')[0];
   const scroll_event = 'onwheel' in document ? 'wheel' : 'onmousewheel' in document ? 'mousewheel' : 'DOMMouseScroll';
 
+  var Descartia = {
+    start(){
+      window.addEventListener('scroll',scrollfunction,{ passive: false });
+      window.addEventListener('resize', resize_function_timer,false);
+    },
+    stop(){
+      window.removeEventListener('scroll',scrollfunction);
+    }
+  };
 
   window.onbeforeunload = function(){
     //window.scrollTo(0,0);
@@ -22,12 +30,18 @@
   window.onload = function(){
     //window.scrollTo(0,0);
     descartia_init();
-    //l_scroll(window.pageYOffset);
     setTimeout(function(){
       l_scroll(window.pageYOffset);
-      window.addEventListener('scroll',scrollfunction,{ passive: false });
+      Descartia.start();
     },100);
   };
+
+  function resize_function_timer(){
+    clearTimeout(debounceTimer);
+    debounceTimer = setTimeout(function() {
+        descartia_resize();
+    }, 100);
+  }
 
   function scrollfunction(e){
     //e.preventDefault();
@@ -36,13 +50,6 @@
     wheelScroll(e);
     //l_table.style.transform = 'translateY(-'+scrolled+'px)';
   }
-
-  window.addEventListener('resize', function(){
-    clearTimeout(debounceTimer);
-    debounceTimer = setTimeout(function() {
-        descartia_resize();
-    }, 100);
-  },false);
 
   function descartia_init(){
     l_table_height = l_table.clientHeight;
