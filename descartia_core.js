@@ -47,6 +47,7 @@ var Descatia = (function(){
   function descartia_init(){
     l_table = document.getElementsByClassName('l-table')[0];
     dummy_scroll = document.getElementsByClassName('dummy-scroll')[0];
+    document.getElementsByClassName('l-page')[0].classList.add('l-page-fixed');
     w_width = window.innerWidth;
     w_height = window.innerHeight;
     l_table_height = l_table.clientHeight;
@@ -96,28 +97,4 @@ var Descatia = (function(){
     amplitude = target - offset;
     window.requestAnimationFrame(autoScroll);
   };
-})();
-
-(function(){
-
-  var isClicked = false;
-  const ssbutton = document.getElementById('text-button');
-
-  window.onload = function(){
-    Descatia.start();
-  };
-
-  ssbutton.addEventListener('click',function(){
-    if(isClicked){
-      isClicked = false;
-      ssbutton.innerHTML = "Stop";
-      Descatia.start();
-    }
-    else{
-      isClicked = true;
-      ssbutton.innerHTML = "Start";
-      Descatia.stop();
-    }
-  });
-
 })();
