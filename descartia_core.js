@@ -37,9 +37,9 @@ var Descatia = (function(){
       }
     },
     disable: function(){
+      document.getElementsByClassName('l-page')[0].classList.remove('l-page-fixed');
+      l_table.style.transform = 'translateY(0px)';
       if(isStarted){
-        document.getElementsByClassName('l-page')[0].classList.remove('l-page-fixed');
-        l_table.style.transform = 'translateY(0px)';
         window.removeEventListener('scroll',scrollfunction);
         window.removeEventListener('resize', resize_function_timer);
         isStarted = false;
