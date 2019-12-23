@@ -1,3 +1,4 @@
+/*! Descartia.js. (C) 2019 Richard Falcema. This software is released under the MIT License. https://opensource.org/licenses/mit-license.php */
 var Descatia = (function(){
   var w_width = window.innerWidth;
   var w_height = window.innerHeight;
