@@ -45,15 +45,15 @@ htmlに`descartia.js`と`common.css`を読み込む
 
 ## Methods
 To start descartia.js
-```js
+```javascript
 Descartia.start();
 ```
 To disable smooth scroll and enable default scroll  
-```js
+```javascript
 Descartia.disable();
 ```  
 To pause smooth scroll and other descartia.js events  
-```js
+```javascript
 Descartia.pause();
 ```
 ## Options
