@@ -1,4 +1,4 @@
-(function(){
+var Descatia = (function(){
   var w_width = window.innerWidth;
   var w_height = window.innerHeight;
   var offset;
@@ -9,31 +9,24 @@
   var timeConstant;
   var l_table_height;
   var debounceTimer;
+  var l_table;
+  var dummy_scroll;
 
-  const l_table = document.getElementsByClassName('l-table')[0];
-  const dummy_scroll = document.getElementsByClassName('dummy-scroll')[0];
-  const scroll_event = 'onwheel' in document ? 'wheel' : 'onmousewheel' in document ? 'mousewheel' : 'DOMMouseScroll';
-
-  var Descartia = {
-    start(){
-      window.addEventListener('scroll',scrollfunction,{ passive: false });
-      window.addEventListener('resize', resize_function_timer,false);
+  return{
+    start: function(){
+      descartia_init();
+      setTimeout(function(){
+        console.log(window.pageYOffset);
+        l_scroll(window.pageYOffset);
+        window.addEventListener('scroll',scrollfunction,{ passive: false });
+        window.addEventListener('resize', resize_function_timer,false);
+        document.getElementById('scroll-value').innerHTML = window.pageYOffset;
+      },100);
     },
-    stop(){
+    stop: function(){
       window.removeEventListener('scroll',scrollfunction);
+      window.removeEventListener('resize', resize_function_timer);
     }
-  };
-
-  window.onbeforeunload = function(){
-    //window.scrollTo(0,0);
-  };
-  window.onload = function(){
-    //window.scrollTo(0,0);
-    descartia_init();
-    setTimeout(function(){
-      l_scroll(window.pageYOffset);
-      Descartia.start();
-    },100);
   };
 
   function resize_function_timer(){
@@ -52,12 +45,15 @@
   }
 
   function descartia_init(){
+    l_table = document.getElementsByClassName('l-table')[0];
+    dummy_scroll = document.getElementsByClassName('dummy-scroll')[0];
+    w_width = window.innerWidth;
+    w_height = window.innerHeight;
     l_table_height = l_table.clientHeight;
+    dummy_scroll.style.height = l_table_height+'px';
     y_max = l_table_height - w_height;
     offset = 0;
     console.log('descartia.js executed');
-    console.log(y_max);
-    dummy_scroll.style.height = l_table_height+'px';
   }
 
   function descartia_resize(){
@@ -100,6 +96,10 @@
     amplitude = target - offset;
     window.requestAnimationFrame(autoScroll);
   };
+})();
 
-
-}());
+(function(){
+  window.onload = function(){
+    Descatia.start();
+  };
+})();
