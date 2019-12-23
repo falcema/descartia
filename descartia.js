@@ -13,6 +13,7 @@ var Descatia = (function(){
   var l_table;
   var dummy_scroll;
   var min_width = 800;
+  var isMobile = /iP(hone|(o|a)d)|Android/.test(navigator.userAgent);
 
   var isStarted = false;
   var isEnabled = false;
@@ -93,7 +94,7 @@ var Descatia = (function(){
   }
 
   function descartia_start(){
-    if(!isStarted && windowWidthCheck()){
+    if(!isStarted && !isMobile && windowWidthCheck()){
       descartia_init();
       isStarted = true;
       setTimeout(function(){
