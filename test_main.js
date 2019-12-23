@@ -10,7 +10,7 @@
   };
 
   ssbutton.addEventListener('click',function(){
-    Descatia.stop();
+    Descatia.pause();
   });
 
   ssbutton1.addEventListener('click',function(){

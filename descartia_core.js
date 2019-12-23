@@ -21,7 +21,7 @@ var Descatia = (function(){
     start: function(){
       descartia_start();
     },
-    stop: function(){
+    pause: function(){
       if(isStarted){
         window.removeEventListener('scroll',scrollfunction);
         window.removeEventListener('resize', resize_function_timer);
