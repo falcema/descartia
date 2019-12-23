@@ -7,7 +7,7 @@ Descatia.jsはシンプルで軽量なスムーズスクロールを実現する
 Load `descartia_core.js` and `common.css` in your html.  
 htmlに`descartia_core.js`と`common.css`を読み込む
 ```html
-<script src="/descartia_core.js"></script>
+<script src="descartia_core.js"></script>
 ```  
 ```html
 <link rel="stylesheet" type="text/css" href="common.css">
@@ -26,6 +26,7 @@ htmlに`descartia_core.js`と`common.css`を読み込む
 
   <div class="dummy-scroll">
   </div>
+  
 </body>
 ```  
 
