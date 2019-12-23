@@ -33,6 +33,7 @@ body{
   position:absolute;
   top: 0;
   left: 0;
+  z-index: -1;
 }
 #scroll-value{
   font-size: 30px;

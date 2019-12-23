@@ -11,23 +11,14 @@ var Descatia = (function(){
   var debounceTimer;
   var l_table;
   var dummy_scroll;
+  var min_width = 800;
 
   var isStarted = false;
   var isEnabled = false;
 
   return{
     start: function(){
-      if(!isStarted){
-        descartia_init();
-        isStarted = true;
-        setTimeout(function(){
-          console.log(window.pageYOffset);
-          l_scroll(window.pageYOffset);
-          window.addEventListener('scroll',scrollfunction,{ passive: false });
-          window.addEventListener('resize', resize_function_timer,false);
-          document.getElementById('scroll-value').innerHTML = window.pageYOffset;
-        },100);
-      }
+      descartia_start();
     },
     stop: function(){
       if(isStarted){
@@ -37,15 +28,21 @@ var Descatia = (function(){
       }
     },
     disable: function(){
-      document.getElementsByClassName('l-page')[0].classList.remove('l-page-fixed');
-      l_table.style.transform = 'translateY(0px)';
-      if(isStarted){
-        window.removeEventListener('scroll',scrollfunction);
-        window.removeEventListener('resize', resize_function_timer);
-        isStarted = false;
-      }
+      descartia_disable();
     }
   };
+
+  function windowWidthCheck(){
+    if(min_width == null){
+      return true;
+    }
+    else if(window.innerWidth > min_width){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
 
   function resize_function_timer(){
     clearTimeout(debounceTimer);
@@ -76,12 +73,45 @@ var Descatia = (function(){
   }
 
   function descartia_resize(){
-    w_width = window.innerWidth;
-    w_height = window.innerHeight;
-    l_table_height = l_table.clientHeight;
-    dummy_scroll.style.height = l_table_height+'px';
-    y_max = l_table_height - w_height;
-    l_scroll(window.pageYOffset);
+    if(isStarted){
+      w_width = window.innerWidth;
+      w_height = window.innerHeight;
+      l_table_height = l_table.clientHeight;
+      dummy_scroll.style.height = l_table_height+'px';
+      y_max = l_table_height - w_height;
+      l_scroll(window.pageYOffset);
+      if(windowWidthCheck()==false){
+        descartia_disable();
+      }
+    }
+    else{
+      if(windowWidthCheck()==true){
+        descartia_start();
+      }
+    }
+  }
+
+  function descartia_start(){
+    if(!isStarted && windowWidthCheck()){
+      descartia_init();
+      isStarted = true;
+      setTimeout(function(){
+        console.log(window.pageYOffset);
+        l_scroll(window.pageYOffset);
+        window.addEventListener('scroll',scrollfunction,{ passive: false });
+        window.addEventListener('resize', resize_function_timer,false);
+        document.getElementById('scroll-value').innerHTML = window.pageYOffset;
+      },100);
+    }
+  }
+
+  function descartia_disable(){
+    document.getElementsByClassName('l-page')[0].classList.remove('l-page-fixed');
+    l_table.style.transform = 'translateY(0px)';
+    if(isStarted){
+      window.removeEventListener('scroll',scrollfunction);
+      isStarted = false;
+    }
   }
 
   function l_scroll(y){
