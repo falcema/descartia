@@ -12,20 +12,38 @@ var Descatia = (function(){
   var l_table;
   var dummy_scroll;
 
+  var isStarted = false;
+  var isEnabled = false;
+
   return{
     start: function(){
-      descartia_init();
-      setTimeout(function(){
-        console.log(window.pageYOffset);
-        l_scroll(window.pageYOffset);
-        window.addEventListener('scroll',scrollfunction,{ passive: false });
-        window.addEventListener('resize', resize_function_timer,false);
-        document.getElementById('scroll-value').innerHTML = window.pageYOffset;
-      },100);
+      if(!isStarted){
+        descartia_init();
+        isStarted = true;
+        setTimeout(function(){
+          console.log(window.pageYOffset);
+          l_scroll(window.pageYOffset);
+          window.addEventListener('scroll',scrollfunction,{ passive: false });
+          window.addEventListener('resize', resize_function_timer,false);
+          document.getElementById('scroll-value').innerHTML = window.pageYOffset;
+        },100);
+      }
     },
     stop: function(){
-      window.removeEventListener('scroll',scrollfunction);
-      window.removeEventListener('resize', resize_function_timer);
+      if(isStarted){
+        window.removeEventListener('scroll',scrollfunction);
+        window.removeEventListener('resize', resize_function_timer);
+        isStarted = false;
+      }
+    },
+    disable: function(){
+      if(isStarted){
+        document.getElementsByClassName('l-page')[0].classList.remove('l-page-fixed');
+        l_table.style.transform = 'translateY(0px)';
+        window.removeEventListener('scroll',scrollfunction);
+        window.removeEventListener('resize', resize_function_timer);
+        isStarted = false;
+      }
     }
   };
 
