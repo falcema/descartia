@@ -15,10 +15,10 @@ descartia.js（デカルティア.js）はスマホやタブレットなどの�
 
 ## How to use
 #### 1. Load Essential Files
-Load `descartia_core.js` and `common.css` in your html.  
-htmlに`descartia_core.js`と`common.css`を読み込む
+Load `descartia.js` and `common.css` in your html.  
+htmlに`descartia.js`と`common.css`を読み込む
 ```html
-<script src="descartia_core.js"></script>
+<script src="descartia.js"></script>
 ```  
 ```html
 <link rel="stylesheet" type="text/css" href="common.css">
