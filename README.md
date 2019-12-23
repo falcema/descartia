@@ -1,8 +1,8 @@
 <img src="images/descartia_logo_mini.png" width="300" alt="descartia.js">
 
 ## Overview
-descartia.js is a simple and fast JavaScript module for smooth scroll.  
-descartia.jsはシンプルで軽量なスムーズスクロールを実現するJavaScriptモジュールです。
+descartia.js is a simple and fast JavaScript module which enables smooth inertial scroll compatible with flick scrolling of mobile devices.
+descartia.jsはモバイルOSなどに搭載されている慣性つきのスムーズスクロールUIをすべてのデバイスで実現する軽量で高速なJavaScriptモジュールです。
 ## How to use
 #### 1. Load Essential Files
 Load `descartia_core.js` and `common.css` in your html.  
