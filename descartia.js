@@ -1,4 +1,4 @@
-/*! Descartia.js. (C) 2019 Richard Falcema. This software is released under the MIT License. https://opensource.org/licenses/mit-license.php */
+/*! descartia.js. (C) 2019 Richard Falcema. This software is released under the MIT License. https://opensource.org/licenses/mit-license.php */
 var Descatia = (function(){
   var w_width = window.innerWidth;
   var w_height = window.innerHeight;
@@ -12,7 +12,7 @@ var Descatia = (function(){
   var debounceTimer;
   var l_table;
   var dummy_scroll;
-  var min_width = 800;
+  var min_width = null;
   var isMobile = /iP(hone|(o|a)d)|Android/.test(navigator.userAgent);
 
   var isStarted = false;
@@ -23,14 +23,13 @@ var Descatia = (function(){
       descartia_start();
     },
     pause: function(){
-      if(isStarted){
-        window.removeEventListener('scroll',scrollfunction);
-        window.removeEventListener('resize', resize_function_timer);
-        isStarted = false;
-      }
+      descartia_pause();
     },
     disable: function(){
       descartia_disable();
+    },
+    setMinWidth: function(width){
+      descartia_setwidth(width);
     }
   };
 
@@ -53,11 +52,11 @@ var Descatia = (function(){
     }, 100);
   }
 
-  function scrollfunction(e){
+  function scrollfunction(){
     //e.preventDefault();
     var scrolled = window.pageYOffset;
     document.getElementById('scroll-value').innerHTML = scrolled;
-    wheelScroll(e);
+    wheelScroll();
     //l_table.style.transform = 'translateY(-'+scrolled+'px)';
   }
 
@@ -94,16 +93,29 @@ var Descatia = (function(){
   }
 
   function descartia_start(){
-    if(!isStarted && !isMobile && windowWidthCheck()){
-      descartia_init();
-      isStarted = true;
-      setTimeout(function(){
-        console.log(window.pageYOffset);
-        l_scroll(window.pageYOffset);
-        window.addEventListener('scroll',scrollfunction,{ passive: false });
+    if(!isStarted && !isMobile){
+      if(windowWidthCheck()){
+        descartia_init();
+        isStarted = true;
+        setTimeout(function(){
+          console.log(window.pageYOffset);
+          l_scroll(window.pageYOffset);
+          window.addEventListener('scroll',scrollfunction,{ passive: false });
+          window.addEventListener('resize', resize_function_timer,false);
+          document.getElementById('scroll-value').innerHTML = window.pageYOffset;
+        },100);
+      }
+      else{
         window.addEventListener('resize', resize_function_timer,false);
-        document.getElementById('scroll-value').innerHTML = window.pageYOffset;
-      },100);
+      }
+    }
+  }
+
+  function descartia_pause(){
+    if(isStarted){
+      window.removeEventListener('scroll',scrollfunction);
+      window.removeEventListener('resize', resize_function_timer);
+      isStarted = false;
     }
   }
 
@@ -113,6 +125,18 @@ var Descatia = (function(){
     if(isStarted){
       window.removeEventListener('scroll',scrollfunction);
       isStarted = false;
+    }
+  }
+
+  function descartia_setwidth(width){
+    if(width == null){
+      min_width = null;
+    }
+    else if(typeof width == "number"){
+      min_width = width;
+    }
+    else{
+
     }
   }
 
@@ -137,13 +161,10 @@ var Descatia = (function(){
     }
   };
 
-  function wheelScroll(e) {
+  function wheelScroll() {
     timestamp = Date.now();
     timeConstant = 120;
     target = window.pageYOffset;
-    if(target < 0){
-      target = 0;
-    }
     amplitude = target - offset;
     window.requestAnimationFrame(autoScroll);
   };

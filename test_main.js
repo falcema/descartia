@@ -6,6 +6,7 @@
   const ssbutton2 = document.getElementById('text-button2');
 
   window.onload = function(){
+    Descatia.setMinWidth(600);
     Descatia.start();
   };
 
