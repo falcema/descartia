@@ -1,5 +1,4 @@
-# **descartia.js**  
-<img src="images/descartia_logo_mini.png" width="300">
+<img src="images/descartia_logo_mini.png" width="300" alt="descartia.js">
 
 ## Overview
 descatia.js is a simple and fast JavaScript module for smooth scroll.  
