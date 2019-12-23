@@ -1,0 +1,19 @@
+{
+  "name": "descartia",
+  "version": "1.0.0",
+  "description": "smooth scroll library",
+  "main": "descartia.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/falcema/descartia.git"
+  },
+  "author": "Richard Falcema",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/falcema/descartia/issues"
+  },
+  "homepage": "https://github.com/falcema/descartia#readme"
+}
