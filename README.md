@@ -7,7 +7,10 @@ descartia.jsはスマホやタブレットなどの慣性スクロールとほ�
 1. descartia.js calculates scroll position based on physical attenuation
 2. descartia.js uses requestAnimationFrame() method to render scroll animation.
 3. descartia.js does not break browsers' default scroll functions.  
-( You can use scrollTo(), scrollBy(), and browsers' scroll bars )
+( You can use scrollTo(), scrollBy(), browsers' scroll bars, etc. )
+4. descartia.js can detect window width, and change its behavior. So you can use it in a responsive layout.
+5. descartia.js stops working automatically on mobile touchscreen devices to prevent conflict with native smooth scroll on the devices.
+6. descartia.js stops working automatically on Mac laptops to prevent conflict with native inertial scroll of the trackpad on the devices. (Experimental)
 
 
 ## How to use
