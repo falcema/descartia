@@ -9,8 +9,8 @@ descartia.jsはスマホやタブレットなどの慣性スクロールとほ�
 3. descartia.js does not break browsers' default scroll functions.  
 ( You can use scrollTo(), scrollBy(), browsers' scroll bars, etc. )
 4. descartia.js can detect window width, and change its behavior. So you can use it in a responsive layout.
-5. descartia.js stops working automatically on mobile touchscreen devices to prevent conflict with native smooth scroll on the devices.
-6. descartia.js stops working automatically on Mac laptops to prevent conflict with native inertial scroll of the trackpad on the devices. (Experimental)
+5. descartia.js stops working automatically on mobile touchscreen devices to prevent conflict with native smooth scroll.
+6. descartia.js stops working automatically on Mac laptops to prevent conflict with native inertial scroll of the trackpad. (Experimental)
 
 
 ## How to use
