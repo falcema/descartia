@@ -55,7 +55,7 @@ var Descatia = (function(){
   function scrollfunction(){
     //e.preventDefault();
     var scrolled = window.pageYOffset;
-    document.getElementById('scroll-value').innerHTML = scrolled;
+    //document.getElementById('scroll-value').innerHTML = scrolled;
     wheelScroll();
     //l_table.style.transform = 'translateY(-'+scrolled+'px)';
   }
@@ -102,7 +102,7 @@ var Descatia = (function(){
           l_scroll(window.pageYOffset);
           window.addEventListener('scroll',scrollfunction,{ passive: false });
           window.addEventListener('resize', resize_function_timer,false);
-          document.getElementById('scroll-value').innerHTML = window.pageYOffset;
+          //document.getElementById('scroll-value').innerHTML = window.pageYOffset;
         },100);
       }
       else{
