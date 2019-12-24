@@ -17,7 +17,7 @@ var Descartia = (function(){
   var l_table;
   var dummy_scroll;
   var min_width = null;
-  var frameId = 0;
+  var frameIds = [0];
   var isMobile = /iP(hone|(o|a)d)|Android/.test(navigator.userAgent);
 
   var isStarted = false;
@@ -58,14 +58,20 @@ var Descartia = (function(){
   }
 
   function render_function_timer(){
-    scrollfunction();
+    if(throttleTimer + 17 - Date.now() < 0){
+      throttleTimer = Date.now();
+      scrollfunction();
+      clearTimeout(debounceTimer2);
+      debounceTimer2 = setTimeout(function() {
+        scrollfunction();
+    }, 20);
+    }
   }
 
   function scrollfunction(){
     //e.preventDefault();
     //var scrolled = window.pageYOffset;
     //document.getElementById('scroll-value').innerHTML = scrolled;
-    console.log('scroll');
     wheelScroll();
     //l_table.style.transform = 'translateY(-'+scrolled+'px)';
   }
@@ -165,7 +171,8 @@ var Descartia = (function(){
       var delta = -amplitude * Math.exp(-elapsed / timeConstant);
       if (delta > 1 || delta < -1) {
         l_scroll(target + delta);
-        window.requestAnimationFrame(autoScroll);
+        var requestId = window.requestAnimationFrame(autoScroll);
+        frameIds.push(requestId);
       } else {
         l_scroll(target);
         isRendering = false;
@@ -180,11 +187,12 @@ var Descartia = (function(){
     timeConstant = 120;
     target = window.pageYOffset;
     amplitude = target - offset;
-    var latestId = frameId;
-    var requestId = window.requestAnimationFrame(autoScroll);
-    frameId = requestId;
-    for(var i = latestId; i < requestId; i++){
-      window.cancelAnimationFrame(i);
+    var latestId_length = frameIds.length;
+    for(var i = 0; i < latestId_length; i++){
+      window.cancelAnimationFrame(frameIds[i]);
     }
+    frameIds.length = 0;
+    var requestId = window.requestAnimationFrame(autoScroll);
+    frameIds.push(requestId);
   };
 })();
