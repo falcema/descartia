@@ -12,6 +12,7 @@ var Descartia = (function(){
   var timeConstant;
   var l_table_height;
   var debounceTimer;
+  var debounceTimer2;
   var throttleTimer = Date.now();
   var l_table;
   var dummy_scroll;
@@ -60,6 +61,10 @@ var Descartia = (function(){
     if(throttleTimer + 17 - Date.now() < 0){
       throttleTimer = Date.now();
       scrollfunction();
+      clearTimeout(debounceTimer2);
+      debounceTimer2 = setTimeout(function() {
+        scrollfunction();
+    }, 20);
     }
   }
 
