@@ -1,4 +1,6 @@
-/*! descartia.js. (C) 2019 Richard Falcema. This software is released under the MIT License. https://opensource.org/licenses/mit-license.php */
+/*! descartia.js. (C) 2019 Richard Falcema.
+https://github.com/falcema/descartia
+This software is released under the MIT License. https://opensource.org/licenses/mit-license.php */
 var Descartia = (function(){
   var w_width = window.innerWidth;
   var w_height = window.innerHeight;
@@ -10,13 +12,14 @@ var Descartia = (function(){
   var timeConstant;
   var l_table_height;
   var debounceTimer;
+  var debounceTimer2;
   var l_table;
   var dummy_scroll;
   var min_width = null;
   var isMobile = /iP(hone|(o|a)d)|Android/.test(navigator.userAgent);
 
   var isStarted = false;
-  var isEnabled = false;
+  var isRendering = false;
 
   return{
     start: function(){
@@ -52,9 +55,16 @@ var Descartia = (function(){
     }, 100);
   }
 
+  function render_function_timer(){
+    clearTimeout(debounceTimer2);
+    debounceTimer2 = setTimeout(function() {
+        scrollfunction();
+    }, 17);
+  }
+
   function scrollfunction(){
     //e.preventDefault();
-    var scrolled = window.pageYOffset;
+    //var scrolled = window.pageYOffset;
     //document.getElementById('scroll-value').innerHTML = scrolled;
     wheelScroll();
     //l_table.style.transform = 'translateY(-'+scrolled+'px)';
@@ -102,7 +112,7 @@ var Descartia = (function(){
         setTimeout(function(){
           console.log(window.pageYOffset);
           l_scroll(window.pageYOffset);
-          window.addEventListener('scroll',scrollfunction,{ passive: false });
+          window.addEventListener('scroll',render_function_timer,{ passive: false });
           window.addEventListener('resize', resize_function_timer,false);
           //document.getElementById('scroll-value').innerHTML = window.pageYOffset;
         },100);
@@ -115,7 +125,7 @@ var Descartia = (function(){
 
   function descartia_pause(){
     if(isStarted){
-      window.removeEventListener('scroll',scrollfunction);
+      window.removeEventListener('scroll',render_function_timer);
       window.removeEventListener('resize', resize_function_timer);
       isStarted = false;
     }
@@ -124,8 +134,8 @@ var Descartia = (function(){
   function descartia_disable(){
     document.getElementsByClassName('l-page')[0].classList.remove('l-page-fixed');
     if(isStarted){
-      l_table.style.transform = 'translateY(0px)';
-      window.removeEventListener('scroll',scrollfunction);
+      l_table.style.transform = 'translate3D(0px,0px,0px)';
+      window.removeEventListener('scroll',render_function_timer);
       isStarted = false;
     }
   }
@@ -144,7 +154,7 @@ var Descartia = (function(){
 
   function l_scroll(y){
     offset = y;
-    l_table.style.transform = 'translateY(-'+y+'px)';
+    l_table.style.transform = 'translate3D(0px,-'+y+'px,0px)';
   }
 
   function autoScroll() {
@@ -158,14 +168,16 @@ var Descartia = (function(){
         window.requestAnimationFrame(autoScroll);
       } else {
         l_scroll(target);
+        isRendering = false;
 
       }
     }
   };
 
   function wheelScroll() {
+    isRendering = true;
     timestamp = Date.now();
-    timeConstant = 120;
+    timeConstant = 100;
     target = window.pageYOffset;
     amplitude = target - offset;
     window.requestAnimationFrame(autoScroll);
