@@ -173,7 +173,6 @@ var Descartia = (function(){
         l_scroll(target + delta);
         var requestId = window.requestAnimationFrame(autoScroll);
         frameIds.push(requestId);
-        console.log(target + delta +' '+ Date.now() +' '+elapsed +' '+amplitude);
       } else {
         l_scroll(target);
         isRendering = false;
