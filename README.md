@@ -44,7 +44,7 @@ htmlに`descartia.js`と`common.css`を読み込む
 
 
 ## Methods
-To start descartia.js
+To start (and resume) descartia.js
 ```javascript
 Descartia.start();
 ```
