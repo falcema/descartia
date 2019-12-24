@@ -58,7 +58,7 @@ var Descartia = (function(){
   }
 
   function render_function_timer(){
-    if(throttleTimer + 17 - Date.now() < 0){
+    if(throttleTimer + 20 - Date.now() < 0){
       throttleTimer = Date.now();
       scrollfunction();
       clearTimeout(debounceTimer2);
@@ -167,12 +167,13 @@ var Descartia = (function(){
     var elapsed;
 
     if (amplitude) {
-      elapsed = Date.now() - timestamp;
+      elapsed = Date.now() - timestamp + 16;
       var delta = -amplitude * Math.exp(-elapsed / timeConstant);
       if (delta > 1 || delta < -1) {
         l_scroll(target + delta);
         var requestId = window.requestAnimationFrame(autoScroll);
         frameIds.push(requestId);
+        console.log(target + delta +' '+ Date.now() +' '+elapsed +' '+amplitude);
       } else {
         l_scroll(target);
         isRendering = false;
@@ -184,7 +185,7 @@ var Descartia = (function(){
   function wheelScroll() {
     isRendering = true;
     timestamp = Date.now();
-    timeConstant = 120;
+    timeConstant = 100;
     target = window.pageYOffset;
     amplitude = target - offset;
     var latestId_length = frameIds.length;
