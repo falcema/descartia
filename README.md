@@ -56,4 +56,10 @@ To pause smooth scroll and other descartia.js events
 ```javascript
 Descartia.pause();
 ```
+Optional: To set minimum window width limit descartia.js works. (This method should be declared before `Descartia.start();`)
+```javascript
+Descartia.setMinWidth(width_value_without_px);
+Descartia.setMinWidth(600); //descartia.js stops and default scroll will be enabled if width <= 600
+Descartia.setMinWidth(); //null will clear min width limit
+```
 ## Options
