@@ -177,7 +177,7 @@ var Descartia = (function(){
   function wheelScroll() {
     isRendering = true;
     timestamp = Date.now();
-    timeConstant = 100;
+    timeConstant = 120;
     target = window.pageYOffset;
     amplitude = target - offset;
     window.requestAnimationFrame(autoScroll);
