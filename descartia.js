@@ -58,14 +58,7 @@ var Descartia = (function(){
   }
 
   function render_function_timer(){
-    if(throttleTimer + 17 - Date.now() < 0){
-      throttleTimer = Date.now();
-      scrollfunction();
-      clearTimeout(debounceTimer2);
-      debounceTimer2 = setTimeout(function() {
-        scrollfunction();
-    }, 100);
-    }
+    scrollfunction();
   }
 
   function scrollfunction(){
