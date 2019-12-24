@@ -12,10 +12,11 @@ var Descartia = (function(){
   var timeConstant;
   var l_table_height;
   var debounceTimer;
-  var debounceTimer2;
+  var throttleTimer = Date.now();
   var l_table;
   var dummy_scroll;
   var min_width = null;
+  var frameId = 0;
   var isMobile = /iP(hone|(o|a)d)|Android/.test(navigator.userAgent);
 
   var isStarted = false;
@@ -56,16 +57,17 @@ var Descartia = (function(){
   }
 
   function render_function_timer(){
-    clearTimeout(debounceTimer2);
-    debounceTimer2 = setTimeout(function() {
-        scrollfunction();
-    }, 17);
+    if(throttleTimer + 17 - Date.now() < 0){
+      throttleTimer = Date.now();
+      scrollfunction();
+    }
   }
 
   function scrollfunction(){
     //e.preventDefault();
     //var scrolled = window.pageYOffset;
     //document.getElementById('scroll-value').innerHTML = scrolled;
+    console.log('scroll');
     wheelScroll();
     //l_table.style.transform = 'translateY(-'+scrolled+'px)';
   }
@@ -180,6 +182,11 @@ var Descartia = (function(){
     timeConstant = 120;
     target = window.pageYOffset;
     amplitude = target - offset;
-    window.requestAnimationFrame(autoScroll);
+    var latestId = frameId;
+    var requestId = window.requestAnimationFrame(autoScroll);
+    frameId = requestId;
+    for(var i = latestId; i < requestId; i++){
+      window.cancelAnimationFrame(i);
+    }
   };
 })();
