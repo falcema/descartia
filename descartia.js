@@ -64,7 +64,7 @@ var Descartia = (function(){
       clearTimeout(debounceTimer2);
       debounceTimer2 = setTimeout(function() {
         scrollfunction();
-    }, 20);
+    }, 100);
     }
   }
 
