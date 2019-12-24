@@ -2,10 +2,11 @@
 
 ## Overview
 descartia.js is a simple and fast JavaScript module which enables smooth inertial scroll compatible with flick scrolling of mobile devices.  
-descartia.js（デカルティア.js）はスマホやタブレットなどの慣性スクロールとほぼ同等のスムーズスクロールをすべてのデバイスで実現する軽量で高速なJavaScriptモジュールです。
+descartia.js（デカルティア.js）はスマホやタブレットなどの慣性スクロールとほぼ同等のスムーズスクロールをデスクトップブラウザ上で実現する軽量で高速なJavaScriptモジュールです。
 ## Feature
 1. descartia.js calculates scroll position based on physical attenuation
 2. descartia.js uses requestAnimationFrame() method to render scroll animation.
+3. descartia.js has own requestAnimationFrame() queue inside, and it keeps the appropriate number of render requests.
 3. descartia.js does not break browsers' default scroll functions.  
 ( You can use scrollTo(), scrollBy(), browsers' scroll bars, etc. )
 4. descartia.js can detect window width, and change its behavior. So you can use it in a responsive layout.
