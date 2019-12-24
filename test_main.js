@@ -6,20 +6,20 @@
   const ssbutton2 = document.getElementById('text-button2');
 
   window.onload = function(){
-    Descatia.setMinWidth(600);
-    Descatia.start();
+    Descartia.setMinWidth(600);
+    Descartia.start();
   };
 
   ssbutton.addEventListener('click',function(){
-    Descatia.pause();
+    Descartia.pause();
   });
 
   ssbutton1.addEventListener('click',function(){
-    Descatia.start();
+    Descartia.start();
   });
 
   ssbutton2.addEventListener('click',function(){
-    Descatia.disable();
+    Descartia.disable();
   });
 
 })();
