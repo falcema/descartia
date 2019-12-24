@@ -62,12 +62,14 @@ var Descartia = (function(){
 
   function descartia_init(){
     l_table = document.getElementsByClassName('l-table')[0];
+    l_table_height = l_table.clientHeight;
     dummy_scroll = document.getElementsByClassName('dummy-scroll')[0];
+    dummy_scroll.style.height = l_table_height+'px';
+    l_scroll(window.pageYOffset);
+    //さきにdummyに高さを与えないでfixedをaddするとscroll値が0になるので注意
     document.getElementsByClassName('l-page')[0].classList.add('l-page-fixed');
     w_width = window.innerWidth;
     w_height = window.innerHeight;
-    l_table_height = l_table.clientHeight;
-    dummy_scroll.style.height = l_table_height+'px';
     y_max = l_table_height - w_height;
     offset = 0;
     console.log('descartia.js executed');
@@ -121,8 +123,8 @@ var Descartia = (function(){
 
   function descartia_disable(){
     document.getElementsByClassName('l-page')[0].classList.remove('l-page-fixed');
-    l_table.style.transform = 'translateY(0px)';
     if(isStarted){
+      l_table.style.transform = 'translateY(0px)';
       window.removeEventListener('scroll',scrollfunction);
       isStarted = false;
     }
