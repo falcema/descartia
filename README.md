@@ -44,10 +44,15 @@ htmlに`descartia.js`と`common.css`を読み込む
 
 
 ## Methods
-To start (and resume) descartia.js
+To start (and resume) descartia.js  
 ```javascript
 Descartia.start();
-```
+```  
+This method initializes variables related to HTML elements, ids, and classes, and
+can be used only once. If you want to use it again, for example in the case of pjax / ajax, call `Descartia.disable()`; or `Descartia.pause();` first. Then you will able to call this method again.
+<br>
+<br>
+
 To disable smooth scroll and enable default scroll  
 ```javascript
 Descartia.disable();
