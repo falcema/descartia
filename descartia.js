@@ -111,7 +111,7 @@ var Descartia = (function(){
   }
 
   function descartia_start(){
-    if(!isStarted && !isMobile){
+    if(!isStarted && !isMobile && mbdetect()==false){
       if(windowWidthCheck()){
         descartia_init();
         isStarted = true;
@@ -195,4 +195,33 @@ var Descartia = (function(){
     var requestId = window.requestAnimationFrame(autoScroll);
     frameIds.push(requestId);
   };
+
+  function mbdetect(){
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.indexOf('macintosh')>-1){
+        var ph_width = screen.width * window.devicePixelRatio;
+        var ph_height = screen.height * window.devicePixelRatio;
+        if(ph_width===2304 && ph_height===1440){
+            return true;
+        }
+        else if(ph_width===1440 && ph_height===768){
+            return true;
+        }
+        else if(ph_width===1366 && ph_height===900){
+            return true;
+        }
+        else if(ph_width===1280 && ph_height===800){
+            return true;
+        }
+        else if(window.devicePixelRatio === 2 && (screen.width===1680||screen.width===1440||screen.width===1280||screen.width===1024)){
+          return true;
+        }
+        else{
+          return false;
+        }
+    }
+    else{
+      return false;
+    }
+}
 })();
