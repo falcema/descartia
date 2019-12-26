@@ -204,10 +204,10 @@ var Descartia = (function(){
         if(ph_width===2304 && ph_height===1440){
             return true;
         }
-        else if(ph_width===1440 && ph_height===768){
+        else if(ph_width===1440 && ph_height===900){
             return true;
         }
-        else if(ph_width===1366 && ph_height===900){
+        else if(ph_width===1366 && ph_height===768){
             return true;
         }
         else if(ph_width===1280 && ph_height===800){
