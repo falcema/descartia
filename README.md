@@ -4,7 +4,7 @@
 descartia.js is a simple and fast JavaScript module which enables smooth inertial scroll compatible with flick scrolling of mobile devices.  
 descartia.js（デカルティア.js）はスマホやタブレットなどの慣性スクロールとほぼ同等のスムーズスクロールをデスクトップブラウザ上で実現する軽量で高速なJavaScriptモジュールです。
 ## Feature
-1. descartia.js calculates scroll position based on physical attenuation
+1. descartia.js calculates scroll animation based on physical attenuation
 2. descartia.js uses requestAnimationFrame() method to render scroll animation.
 3. descartia.js has own requestAnimationFrame() queue inside, and it keeps the appropriate number of render requests.
 3. descartia.js does not break browsers' default scroll functions.  
@@ -15,15 +15,12 @@ descartia.js（デカルティア.js）はスマホやタブレットなどの�
 
 
 ## How to use
-#### 1. Load Essential Files
-Load `descartia.js` and `common.css` in your html.  
-htmlに`descartia.js`と`common.css`を読み込む
+#### 1. Load File
+Load `descartia.js`  
+htmlに`descartia.js`を読み込む
 ```html
 <script src="descartia.js"></script>
 ```  
-```html
-<link rel="stylesheet" type="text/css" href="common.css">
-```
 #### 2. Write HTML in the proper style
 ```html
 <body>
@@ -41,6 +38,30 @@ htmlに`descartia.js`と`common.css`を読み込む
 
 </body>
 ```  
+#### 3. Apply styles to the elements
+```css
+.d-page{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.d-page-fixed{
+  position: fixed;
+}
+.d-dummy-scroll{
+  width: 100%;
+  height: 0;
+  position:absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+```
+OR load css
+```html
+<link rel="stylesheet" type="text/css" href="descartia.style.css">
+```
+`descartia.js` calculates scrollable length from height of `.d-page`. All child elements of `.d-page` should be `position: static;` (default of position). In the case of using 'fixed' or 'absolute', proper height value must be applied to `.d-page` before descartia.js execution and after every resize event. (not recommended)
 
 
 
@@ -69,7 +90,7 @@ Descartia.setMinWidth(600); //descartia.js stops and default scroll will be enab
 Descartia.setMinWidth(); //null will clear min width limit
 ```
 ## Options
-I'll write later.
+I'll write this section later.
 ## License
 This software is released under the MIT License.  
 (C) 2019 Richard Falcema.
