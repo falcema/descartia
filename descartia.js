@@ -169,7 +169,7 @@ var Descartia = (function(){
     if (amplitude) {
       elapsed = Date.now() - timestamp + 16;
       var delta = -amplitude * Math.exp(-elapsed / timeConstant);
-      if (delta > 1 || delta < -1) {
+      if (delta > 0.5 || delta < -0.5) {
         l_scroll(target + delta);
         var requestId = window.requestAnimationFrame(autoScroll);
         frameIds.push(requestId);
