@@ -61,7 +61,7 @@ OR load css
 ```html
 <link rel="stylesheet" type="text/css" href="descartia.style.css">
 ```
-`descartia.js` calculates scrollable length from height of `.d-page`. All child elements of `.d-page` should be `position: static;` (default of position). In the case of using 'fixed' or 'absolute', proper height value must be applied to `.d-page` before descartia.js execution and after every resize event. (not recommended)
+`descartia.js` calculates scrollable length from height of `.d-table`. All child elements of `.d-table` should be `position: static;` (default of position). In the case of using 'fixed' or 'absolute', proper height value must be applied to `.d-table` before descartia.js execution and after every resize event. (not recommended)
 
 
 
