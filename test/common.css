@@ -1,5 +1,6 @@
 body{
   margin: 0;
+  font-family: 'Arial','Roboto',sans-serif;
 }
 .section{
   width: 100%;
@@ -35,12 +36,33 @@ body{
   left: 0;
   z-index: -1;
 }
+#indicators{
+  position: fixed;
+  top:0;
+}
+#scroll-title{
+  font-size: 20px;
+  display: block;
+  margin-left: 30px;
+  margin-bottom: 0px;
+}
 #scroll-value{
   font-size: 30px;
   display: block;
-  position: fixed;
-  margin-left: 50px;
-  top: 0;
+  margin-left: 30px;
+  margin-top: 0px;
+}
+#descartia-title{
+  font-size: 20px;
+  display: block;
+  margin-left: 30px;
+  margin-bottom: 0px;
+}
+#descartia-value{
+  font-size: 30px;
+  display: block;
+  margin-left: 30px;
+  margin-top: 0px;
 }
 #text-button {
   display: block;
