@@ -77,13 +77,13 @@ var Descartia = (function(){
   }
 
   function descartia_init(){
-    l_table = document.getElementsByClassName('l-table')[0];
+    l_table = document.getElementsByClassName('d-table')[0];
     l_table_height = l_table.clientHeight;
-    dummy_scroll = document.getElementsByClassName('dummy-scroll')[0];
+    dummy_scroll = document.getElementsByClassName('d-dummy-scroll')[0];
     dummy_scroll.style.height = l_table_height+'px';
     l_scroll(window.pageYOffset);
     //さきにdummyに高さを与えないでfixedをaddするとscroll値が0になるので注意
-    document.getElementsByClassName('l-page')[0].classList.add('l-page-fixed');
+    document.getElementsByClassName('d-page')[0].classList.add('d-page-fixed');
     w_width = window.innerWidth;
     w_height = window.innerHeight;
     y_max = l_table_height - w_height;
@@ -138,7 +138,7 @@ var Descartia = (function(){
   }
 
   function descartia_disable(){
-    document.getElementsByClassName('l-page')[0].classList.remove('l-page-fixed');
+    document.getElementsByClassName('d-page')[0].classList.remove('d-page-fixed');
     if(isStarted){
       l_table.style.transform = 'translate3D(0px,0px,0px)';
       window.removeEventListener('scroll',render_function_timer);

@@ -28,15 +28,15 @@ htmlに`descartia.js`と`common.css`を読み込む
 ```html
 <body>
 
-  <div class="l-page">
-    <div class="l-table">
+  <div class="d-page">
+    <div class="d-table">
 
       Page Contents.
 
     </div>
   </div>
 
-  <div class="dummy-scroll">
+  <div class="d-dummy-scroll">
   </div>
 
 </body>
@@ -69,3 +69,7 @@ Descartia.setMinWidth(600); //descartia.js stops and default scroll will be enab
 Descartia.setMinWidth(); //null will clear min width limit
 ```
 ## Options
+I'll write later.
+## License
+This software is released under the MIT License.  
+(C) 2019 Richard Falcema.
