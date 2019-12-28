@@ -35,6 +35,9 @@ var Descartia = (function(){
     },
     setMinWidth: function(width){
       descartia_setwidth(width);
+    },
+    currentScrolled: function(){
+      return offset;
     }
   };
 
