@@ -143,8 +143,12 @@ var Descartia = (function(){
   function descartia_disable(){
     document.getElementsByClassName('d-page')[0].classList.remove('d-page-fixed');
     if(isStarted){
-      l_table.style.transform = 'translate3D(0px,0px,0px)';
       window.removeEventListener('scroll',render_function_timer);
+      var latestId_length = frameIds.length;
+      for(var i = 0; i < latestId_length; i++){
+        window.cancelAnimationFrame(frameIds[i]);
+      }
+      l_table.style.transform = 'translate3D(0px,0px,0px)';
       isStarted = false;
     }
   }
