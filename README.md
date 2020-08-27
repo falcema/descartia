@@ -1,8 +1,8 @@
 <img src="images/descartia_logo_mini.png" width="300" alt="descartia.js">
 
 ## Overview
-descartia.js is a simple and fast JavaScript module which enables smooth inertial scroll compatible with flick scrolling of mobile devices.  
-descartia.js（デカルティア.js）はスマホやタブレットなどの慣性スクロールとほぼ同等のスムーズスクロールをデスクトップブラウザ上で実現する軽量で高速なJavaScriptモジュールです。
+descartia.js is a simple and fast JavaScript library which enables smooth inertial scroll compatible with flick scrolling of mobile devices.  
+descartia.js（デカルティア.js）はスマホやタブレットなどの慣性スクロールとほぼ同等のスムーズスクロールをデスクトップブラウザ上で実現する軽量で高速なJavaScriptライブラリです。
 Demo → https://falcema.github.io/descartia/
 
 ## Feature
