@@ -3,6 +3,8 @@
 ## Overview
 descartia.js is a simple and fast JavaScript module which enables smooth inertial scroll compatible with flick scrolling of mobile devices.  
 descartia.js（デカルティア.js）はスマホやタブレットなどの慣性スクロールとほぼ同等のスムーズスクロールをデスクトップブラウザ上で実現する軽量で高速なJavaScriptモジュールです。
+Demo → https://falcema.github.io/descartia/
+
 ## Feature
 1. descartia.js calculates scroll animation based on physical attenuation
 2. descartia.js uses requestAnimationFrame() method to render scroll animation.
@@ -22,6 +24,7 @@ htmlに`descartia.js`を読み込む
 <script src="descartia.js"></script>
 ```  
 #### 2. Write HTML in the proper style
+html要素を下のようにマークアップする
 ```html
 <body>
 
@@ -39,6 +42,7 @@ htmlに`descartia.js`を読み込む
 </body>
 ```  
 #### 3. Apply styles to the elements
+スタイルを以下のように適用する
 ```css
 .d-page{
   width: 100%;
@@ -58,6 +62,7 @@ htmlに`descartia.js`を読み込む
 }
 ```
 OR load css
+
 ```html
 <link rel="stylesheet" type="text/css" href="descartia.style.css">
 ```
@@ -67,23 +72,28 @@ OR load css
 
 ## Methods
 To start (and resume) descartia.js  
+descartia.jsを動作させるには以下のメソッドを呼び出します
+
 ```javascript
 Descartia.start();
 ```  
 This method initializes variables related to HTML elements, ids, and classes, and
-can be used only once. If you want to use it again, for example in the case of pjax / ajax, call `Descartia.disable()`; or `Descartia.pause();` first. Then you will able to call this method again.
+can be used only once. If you want to use it again, for example in the case of pjax / ajax, call `Descartia.disable();` or `Descartia.pause();` first. Then you will able to call this method again.
 <br>
 <br>
 
 To disable smooth scroll and enable default scroll  
+descartia.jsを無効にして標準スクロールに切り替える場合
 ```javascript
 Descartia.disable();
-```  
+```
 To pause smooth scroll and other descartia.js events  
+descartia.jsのイベントとレンダリングを一時停止する場合
 ```javascript
 Descartia.pause();
 ```
-Optional: To set minimum window width limit descartia.js works. (This method should be declared before `Descartia.start();`)
+Optional: To set minimum window width limit descartia.js works. (This method should be declared before `Descartia.start();`)<br>
+レスポンシブレイアウトでスムーススクロールが無効化されるウィンドウ幅を設定したい場合、以下のメソッドを`Descartia.start();`の前に呼び出します。
 ```javascript
 Descartia.setMinWidth(width_value_without_px);
 Descartia.setMinWidth(600); //descartia.js stops and default scroll will be enabled if width <= 600
