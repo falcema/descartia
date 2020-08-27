@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>descartia.js</title>
+    <meta name="description" content="descartia.js - simple and fast JavaScript library which enables smooth inertial scroll compatible with flick scrolling of mobile devices.">
+    <link rel="stylesheet" href="https://use.typekit.net/qzz2flq.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="common.css">
+    <link rel="apple-touch-icon" type="image/png" href="apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="icon-192x192.png">
+  </head>
+
+  <body>
+    <div id="menu-bg"></div>
+    <ul id="buttons">
+      <li id="text-button1" class="button">.start</li>
+      <li id="text-button" class="button">.pause</li>
+      <li id="text-button2" class="button">.disable</li>
+    </ul>
+    <img src="images/descartia_logo_mini.png" id="logo">
+    <div class="d-page">
+      <div class="d-table">
+        <div class="section section1">
+          <h1>
+            Light and Smooth
+          </h1>
+        </div>
+        <div class="section section2">
+          <p>
+            descartia.js is <br>a simple and fast <br>JavaScript library <br>which enables<br> smooth inertial scroll <br>compatible with <br>flick scrolling <br>of mobile devices.
+          </p>
+        </div>
+        <div class="section section3">
+        </div>
+        <div class="section section5">
+          <p id="features">
+            <span class="blue">descartia.js calculates scroll animation based on physical attenuation / uses requestAnimationFrame method to render scroll animation /</span><span class="green"> has own requestAnimationFrame queue inside, and it keeps the appropriate number of render requests / </span><span class="orange">does not break browsers' default scroll functions / can detect window width, and change its behavior / </span><span class="pink">stops working automatically on mobile touchscreen devices to prevent conflict with native scroll</span>
+          </p>
+        </div>
+        <div class="section section4">
+          <p id="getstarted">Get started with descartia.js</p>
+          <a href="https://github.com/falcema/descartia"><span id="github">source</span></a>
+          <div id="sns-wrapper">
+            <a href="https://twitter.com/Robotboy189">
+            <svg class="sns-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+              <defs>
+                <style>
+                  .a {
+                    fill: #fff;
+                  }
+                </style>
+              </defs>
+              <title>icon_twitter</title>
+              <path class="a" d="M50,24A26,26,0,1,1,24,50,26,26,0,0,1,50,24ZM67.79,40.49a14.188,14.188,0,0,1-4.01,1.11,7.05,7.05,0,0,0,3.07-3.87,13.8,13.8,0,0,1-4.43,1.69,6.976,6.976,0,0,0-12.07,4.77,7.691,7.691,0,0,0,.18,1.6,19.852,19.852,0,0,1-14.39-7.3A7.073,7.073,0,0,0,35.21,42a6.966,6.966,0,0,0,3.1,5.81,7,7,0,0,1-3.16-.87v.1a6.993,6.993,0,0,0,5.59,6.84,6.853,6.853,0,0,1-1.83.25A6.26,6.26,0,0,1,37.6,54a6.981,6.981,0,0,0,6.52,4.85,14.047,14.047,0,0,1-8.67,2.99,12.983,12.983,0,0,1-1.66-.1,19.859,19.859,0,0,0,10.68,3.12c12.83,0,19.85-10.64,19.85-19.85,0-.3,0-.6-.01-.9A14.264,14.264,0,0,0,67.79,40.49Z" transform="translate(-24 -24)"/>
+            </svg>
+            </a>
+            <a href="https://github.com/falcema">
+            <svg class="sns-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55.002 55.002">
+              <defs>
+                <style>
+                  .a {
+                    fill: #fff;
+                    fill-rule: evenodd;
+                  }
+                </style>
+              </defs>
+              <path class="a" d="M50,22.5c-15.184,0-27.5,12.624-27.5,28.2A28.148,28.148,0,0,0,41.308,77.452c1.375.259,1.877-.612,1.877-1.359,0-.669-.024-2.443-.037-4.8-7.65,1.7-9.264-3.78-9.264-3.78-1.25-3.257-3.053-4.124-3.053-4.124-2.5-1.749.189-1.714.189-1.714a5.792,5.792,0,0,1,4.212,2.906c2.453,4.309,6.436,3.065,8,2.343a6.079,6.079,0,0,1,1.746-3.769c-6.107-.712-12.526-3.131-12.526-13.935a11.049,11.049,0,0,1,2.831-7.566,10.38,10.38,0,0,1,.27-7.462s2.309-.758,7.562,2.89a25.45,25.45,0,0,1,13.77,0c5.25-3.649,7.555-2.89,7.555-2.89a10.372,10.372,0,0,1,.274,7.462,11.037,11.037,0,0,1,2.827,7.566c0,10.832-6.43,13.215-12.556,13.913.987.87,1.867,2.591,1.867,5.222,0,3.769-.034,6.811-.034,7.735,0,.754.5,1.631,1.891,1.356A28.151,28.151,0,0,0,77.5,50.7C77.5,35.124,65.186,22.5,50,22.5Z" transform="translate(-22.5 -22.5)"/>
+            </svg>
+            </a>
+          </div>
+
+
+
+          <p id="copyright">©2020 Richard Falcema. This software (excluding logos and images) is released under MIT license.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-dummy-scroll">
+    </div>
+    <div id="indicators">
+      <p id="scroll-title">window scroll value</p>
+      <p id="scroll-value">0</p>
+      <p id="descartia-title">descartia scroll value</p>
+      <p id="descartia-value">0</p>
+    </div>
+
+
+    <script type="text/javascript" src="../descartia.js"></script>
+    <script type="text/javascript" src="test_main.js"></script>
+  </body>
+
+
+</html>

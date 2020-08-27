@@ -1,0 +1,222 @@
+body{
+  margin: 0;
+  font-family: 'fieldwork',sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+#logo{
+  width: 200px;
+  position: fixed;
+  top: 30px;
+  left: 50px;
+  z-index: 10;
+}
+.section{
+  width: 100%;
+  height: auto;
+  min-height: 500px;
+  background-color: #CFCFCF;
+  padding-left: 50px;
+  padding-right: 50px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.section1{
+  background-color: #BCBCBC;
+  background-image: url('images/floor2.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50vw;
+  max-height: 700px;
+
+}
+.section2{
+  background-color: #fff;
+  background-image: linear-gradient(to left, rgb(255,255,255,0.8),rgb(255,255,255,0.8), rgba(255,255,255,1),rgba(255,255,255,1)),url('images/descartia_logo_OL.png');
+  background-position: right 50px center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.section3{
+  background-image: url('images/floor3.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.section4{
+  background-color: #0055FF;
+}
+.section5{
+  background-color: #fff;
+}
+.d-page{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.d-page-fixed{
+  position: fixed;
+}
+.d-dummy-scroll{
+  width: 100%;
+  height: 0;
+  position:absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+#indicators{
+  position: fixed;
+  top:0;
+  z-index: 9;
+  text-align: right;
+  right: 50px;
+}
+#scroll-title{
+  font-size: 12px;
+  display: block;
+  margin-left: 50px;
+  margin-bottom: 0px;
+}
+#scroll-value{
+  font-size: 16px;
+  display: block;
+  margin-left: 50px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: 'Roboto Mono', monospace;
+}
+#descartia-title{
+  font-size: 12px;
+  display: block;
+  margin-left: 50px;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+#descartia-value{
+  font-size: 16px;
+  display: block;
+  margin-left: 50px;
+  margin-top: 0px;
+  font-family: 'Roboto Mono', monospace;
+}
+#buttons{
+  position: fixed;
+  right: 50px;
+  top: 30px;
+  z-index: 10;
+  margin-top: 5px;
+}
+.button {
+  display: inline-block;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  width: 100px;
+  text-align: center;
+  border: 2px solid #232323;
+  z-index: 10;
+  padding: 5px 5px;
+  border-radius: 5px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.button:hover{
+  border: 2px solid #29ABE2;
+  background-color: #29ABE2;
+  color: #fff;
+}
+h1{
+  position: relative;
+  top: 50%;
+  margin-top: -35px;
+  font-size: 70px;
+}
+p{
+  font-size: 30px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+#features{
+  font-size: 50px;
+  line-break: anywhere;
+}
+.blue{
+  color: #29ABE2;
+}
+.green{
+  color: #7AC943;
+}
+.orange{
+  color: #FF991F;
+}
+.pink{
+  color: #F93E4C;
+}
+#menu-bg{
+  background-image: linear-gradient(to top,rgb(255,255,255,0), rgba(255,255,255,1),rgba(255,255,255,1));
+  width:100%;
+  height: 150px;
+  position: fixed;
+  z-index: 9;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+#getstarted{
+  color: #fff;
+  text-align: center;
+  margin-bottom: 50px;
+}
+a{
+  text-decoration: none;
+}
+#github{
+  color: #fff;
+  display: block;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 2px solid #fff;
+  padding: 10px 10px 10px 10px;
+  width: 120px;
+  background: none;
+  font-size: 20px;
+  font-family: 'fieldwork',sans-serif;
+  font-weight: 600;
+  line-height: 20px;
+  position: relative;
+  left: 50%;
+  margin-left: -60px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+#github:hover{
+  color: #0055FF;
+  background-color: #fff;
+}
+#copyright{
+  color: #fff;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 100px;
+  margin-top: 50px;
+}
+#sns-wrapper{
+  text-align: center;
+  margin-top: 100px;
+  margin-bottom: 50px;
+}
+.sns-icon{
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+@media screen and (max-width: 800px){
+  .button{
+    width: 60px;
+  }
+}
