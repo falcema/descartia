@@ -1,7 +1,4 @@
-/*! descartia.js. (C) 2019 Richard Falcema.
-https://github.com/falcema/descartia
-This software is released under the MIT License. */
-var Descartia = (function(){
+/*! descartia.js. (C) 2019-2021 Richard Falcema. https://github.com/falcema/descartia This software is released under the MIT License. */
   var w_width = window.innerWidth;
   var w_height = window.innerHeight;
   var offset;
@@ -22,24 +19,6 @@ var Descartia = (function(){
 
   var isStarted = false;
   var isRendering = false;
-
-  return{
-    start: function(){
-      descartia_start();
-    },
-    pause: function(){
-      descartia_pause();
-    },
-    disable: function(){
-      descartia_disable();
-    },
-    setMinWidth: function(width){
-      descartia_setwidth(width);
-    },
-    currentScrolled: function(){
-      return offset;
-    }
-  };
 
   function windowWidthCheck(){
     if(min_width == null){
@@ -230,5 +209,14 @@ var Descartia = (function(){
     else{
       return false;
     }
-}
-})();
+
+  }
+  function getOffset(){
+    return offset;
+  }
+
+exports.start = descartia_start;
+exports.pause = descartia_pause;
+exports.disable = descartia_disable;
+exports.setMinWidth = descartia_setwidth;
+exports.currentScrolled = getOffset;
