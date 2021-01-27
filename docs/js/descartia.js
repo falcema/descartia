@@ -1,7 +1,20 @@
-/*! descartia.js. (C) 2019 Richard Falcema.
-https://github.com/falcema/descartia
-This software is released under the MIT License. */
-var Descartia = (function(){
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory();
+	else if(typeof define === 'function' && define.amd)
+		define([], factory);
+	else if(typeof exports === 'object')
+		exports["Descartia"] = factory();
+	else
+		root["Descartia"] = factory();
+})(self, function() {
+return /******/ (() => { // webpackBootstrap
+/******/ 	var __webpack_modules__ = ({
+
+/***/ 152:
+/***/ ((__unused_webpack_module, exports) => {
+
+/*! descartia.js. (C) 2019 Richard Falcema. https://github.com/falcema/descartia This software is released under the MIT License. */
   var w_width = window.innerWidth;
   var w_height = window.innerHeight;
   var offset;
@@ -22,24 +35,6 @@ var Descartia = (function(){
 
   var isStarted = false;
   var isRendering = false;
-
-  return{
-    start: function(){
-      descartia_start();
-    },
-    pause: function(){
-      descartia_pause();
-    },
-    disable: function(){
-      descartia_disable();
-    },
-    setMinWidth: function(width){
-      descartia_setwidth(width);
-    },
-    currentScrolled: function(){
-      return offset;
-    }
-  };
 
   function windowWidthCheck(){
     if(min_width == null){
@@ -230,5 +225,51 @@ var Descartia = (function(){
     else{
       return false;
     }
-}
-})();
+
+  }
+  function getOffset(){
+    return offset;
+  }
+
+exports.start = descartia_start;
+exports.pause = descartia_pause;
+exports.disable = descartia_disable;
+exports.setMinWidth = descartia_setwidth;
+exports.currentScrolled = getOffset;
+
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		if(__webpack_module_cache__[moduleId]) {
+/******/ 			return __webpack_module_cache__[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	// module exports must be returned from runtime so entry inlining is disabled
+/******/ 	// startup
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(152);
+/******/ })()
+;
+});
