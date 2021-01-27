@@ -1,4 +1,6 @@
-<img src="images/descartia_logo_mini.png" width="300" alt="descartia.js">
+<img src="images/descartia_logo_mini.png" width="300" alt="descartia.js"><br>
+
+[![npm version](https://badge.fury.io/js/descartia-js.svg)](https://badge.fury.io/js/descartia-js)
 
 ## Overview
 descartia.js is a simple and fast JavaScript library which enables smooth inertial scroll compatible with flick scrolling of mobile devices.  
